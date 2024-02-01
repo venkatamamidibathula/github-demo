@@ -1,5 +1,5 @@
 # github-demo
 A simple new repository for github
 
-Changes made by "B"
+Changes made by "A"
 Added develop
