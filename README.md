@@ -84,4 +84,18 @@ jobs:
 
 **workflow_dispatch**: This will let the workflow run manually.
 
+This is a multi-line shell command.
+
+```yaml
+name: first-workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Greeting
+        run: |
+	    echo "Hello World"
+	    echo "Goodbye"
+```
 
