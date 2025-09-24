@@ -85,3 +85,5 @@ jobs:
 **workflow_dispatch**: This will let the workflow run manually.
 
 
+![Alt text](triggers.png)
+
