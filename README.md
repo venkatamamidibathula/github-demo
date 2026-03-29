@@ -11,17 +11,13 @@
 
 ### How They Are Connected
 
-1. **Workflow**: The top-level definition that contains one or more jobs.
-2. **Jobs**: Defined within a workflow, each job contains a sequence of steps.
-3. **Steps**: Individual tasks that are executed as steps within a job.
-
-![Alt text](githubactions.png)
-
-### Example Workflow File (`.github/workflows/workflow.yml`)
 
 - **Workflow**: Defines the automated process and contains jobs.
 - **Jobs**: Sets of steps that run on the same runner, defined within workflows.
 - **Actions**: Individual tasks executed as steps within jobs.
+
+![Alt text](githubactions.png)
+
 
 By understanding these components and how they are connected, you can effectively create and manage CI/CD pipelines using GitHub Actions.
 
