@@ -13,52 +13,9 @@
 
 1. **Workflow**: The top-level definition that contains one or more jobs.
 2. **Jobs**: Defined within a workflow, each job contains a sequence of steps.
-3. **Actions**: Individual tasks that are executed as steps within a job.
+3. **Steps**: Individual tasks that are executed as steps within a job.
 
-### Diagram
-
-```plaintext
-+---------------------+
-|     Workflow        |
-|  (workflow.yml)     |
-+---------------------+
-           |
-           v
-+---------------------+
-|        Job 1        |
-|  (runs on runner)   |
-+---------------------+
-           |
-           v
-+---------------------+
-|       Step 1        |
-|      (Action)       |
-+---------------------+
-           |
-           v
-+---------------------+
-|       Step 2        |
-|      (Action)       |
-+---------------------+
-           |
-           v
-+---------------------+
-|        Job 2        |
-|  (runs on runner)   |
-+---------------------+
-           |
-           v
-+---------------------+
-|       Step 1        |
-|      (Action)       |
-+---------------------+
-           |
-           v
-+---------------------+
-|       Step 2        |
-|      (Action)       |
-+---------------------+
-```
+![Alt text](githubactions.png)
 
 ### Example Workflow File (`.github/workflows/workflow.yml`)
 
