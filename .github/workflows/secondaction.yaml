@@ -1,0 +1,10 @@
+name: practiceworkflow
+on: workflow_dispatch
+jobs:
+  practice-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print greeting
+        run: echo "Hello Simbha"
+      - name: Print Goodbye
+        run: echo "Goodbye..."  

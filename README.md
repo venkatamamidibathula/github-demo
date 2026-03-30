@@ -78,7 +78,64 @@ jobs:
 
 ```
 
+---
 
+
+It is always better to have specific jobs for each lint, test and deploy.
+
+```yaml
+name: newbuildproject
+on: [workflow_dispatch, push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Build Project with node 18 version
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run lint
+        run: npm lint
+  build:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+      - name: Build Project with node 18 version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
+      - name: Run build
+        run: npm run build
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+      - name: Build Project with node 18 version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm ci
+      - name: Deploy to production
+        run: echo "Deploying to production..."
+
+
+```
+
+**needs** keyword is always there to create dependency between jobs.
 
 ---
 
