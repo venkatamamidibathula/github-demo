@@ -40,6 +40,45 @@ jobs:
 
 ![Alt text](triggers.png)
 
+---
+
+**Event Triggers** , **with**, **needs**
+-----------------------------------------
+
+- There are multiple event triggers ranging from **workflow_dispatch** , **push**, **pull**, **schedule**, **REST API call** etc....
+- There is a **with** keyword where in in a specific action , you can specify node version which you wish to use incase of enforcing a specific version you wish to use
+- **needs** is another key parameter which you can specify to mention a dependent job , where a dependent job needs to wait on some preceding job.
+ 
+```yaml
+
+name: Workflow
+on: [push,workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Run a multi-line script
+        run: |
+          npm ci
+          npm run build
+          npm test
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to production
+        run: echo Deploying to production...    
+
+```
+
+
 
 ---
 
